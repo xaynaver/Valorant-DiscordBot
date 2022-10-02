@@ -90,7 +90,7 @@ class Notify(commands.Cog):
                             notify_send: str = response.get('RESPONSE_SPECIFIED')
                             duration = format_relative(datetime.utcnow() + timedelta(seconds=duration))
 
-                            embed = Embed(notify_send.format(emoji=emoji, name=name, duration=duration), color=0xFD4554)
+                            embed = Embed(notify_send.format(emoji=emoji, name=name, duration=duration), color=0x8000ff)
                             embed.set_thumbnail(url=icon)
                             view = View.NotifyView(user_id, uuid, name, ResponseLanguage('notify_add', guild_locale))
                             view.message = await channel_send.send(content=f'||{author.mention}||', embed=embed, view=view)
@@ -258,7 +258,7 @@ class Notify(commands.Cog):
 
         channel = '**DM Message**' if channel == 'DM Message' else f'{interaction.channel.mention}'
 
-        embed = discord.Embed(description=response.get('SUCCESS').format(channel=channel), color=0x77DD77)
+        embed = discord.Embed(description=response.get('SUCCESS').format(channel=channel), color=0x8000ff)
 
         await interaction.followup.send(embed=embed, ephemeral=True)
 
@@ -303,7 +303,7 @@ class Notify(commands.Cog):
                     notify_send: str = response_send.get('RESPONSE_SPECIFIED')
                     duration = format_relative(datetime.utcnow() + timedelta(seconds=duration))
 
-                    embed = Embed(notify_send.format(emoji=emoji, name=name, duration=duration), color=0xFD4554)
+                    embed = Embed(notify_send.format(emoji=emoji, name=name, duration=duration), color=0x8000ff)
                     embed.set_thumbnail(url=icon)
                     view = View.NotifyView(interaction.user.id, uuid, name, response_add)
                     view.message = await channel_send.send(embed=embed, view=view)
@@ -327,7 +327,7 @@ class Notify(commands.Cog):
             raise ValorantBotError(f"{response_test.get('FAILED_SEND_NOTIFY')} - {e}")
         else:
             await interaction.followup.send(
-                embed=Embed(response_test.get('NOTIFY_IS_WORKING'), color=0x77DD77), ephemeral=True
+                embed=Embed(response_test.get('NOTIFY_IS_WORKING'), color=0x8000ff), ephemeral=True
             )
 
     # @notify.command(name='manage', description='Manage notification list.')

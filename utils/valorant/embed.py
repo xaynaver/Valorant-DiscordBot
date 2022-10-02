@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 
 class Embed(discord.Embed):  # Custom Embed
-    def __init__(self, description: str = None, color: Union[discord.Color, int] = 0xFD4554, **kwargs: Any) -> None:
+    def __init__(self, description: str = None, color: Union[discord.Color, int] = 0x8000ff, **kwargs: Any) -> None:
         super().__init__(description=description, color=color, **kwargs)
 
 
@@ -29,7 +29,7 @@ class GetEmbed:
 
         vp_emoji = GetEmoji.point_by_bot('ValorantPointIcon', bot)
 
-        embed = Embed(f"{emoji} **{name}**\n{vp_emoji} {price}", color=0x0F1923)
+        embed = Embed(f"{emoji} **{name}**\n{vp_emoji} {price}", color=0x8000ff)
         embed.set_thumbnail(url=icon)
         return embed
 
@@ -145,7 +145,7 @@ class GetEmbed:
         emoji = GetEmoji.tier_by_bot(uuid, bot)
         vp_emoji = GetEmoji.point_by_bot('ValorantPointIcon', bot)
 
-        embed = Embed(f"{emoji} **{name}**\n{vp_emoji} {dpice} ~~{price}~~", color=0x0F1923)
+        embed = Embed(f"{emoji} **{name}**\n{vp_emoji} {dpice} ~~{price}~~", color=0x8000ff)
         embed.set_thumbnail(url=icon)
         return embed
 

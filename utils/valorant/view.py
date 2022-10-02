@@ -158,7 +158,7 @@ class NotifyViewList(ui.View):
         vp_emoji = discord.utils.get(self.bot.emojis, name='ValorantPointIcon')
 
         title = self.response.get('TITLE')
-        embed = discord.Embed(description='\u200b', title=title, color=0xFD4554)
+        embed = discord.Embed(description='\u200b', title=title, color=0x8000ff)
 
         click_for_remove = self.response.get('REMOVE_NOTIFY')
 
@@ -266,7 +266,7 @@ class BaseBundle(ui.View):
             self.add_item(self.back_button)
             self.add_item(self.next_button)
 
-    def base_embed(self, title: str, description: str, icon: str, color: int = 0x0F1923) -> discord.Embed:
+    def base_embed(self, title: str, description: str, icon: str, color: int = 0x8000ff) -> discord.Embed:
         """Base embed for the view"""
 
         embed = discord.Embed(title=title, description=description, color=color)
@@ -289,7 +289,7 @@ class BaseBundle(ui.View):
                     discord.Embed(
                         title=bundle['names'][self.language] + f" {collection_title}",
                         description=f"{vp_emoji} {bundle['price']}",
-                        color=0xFD4554,
+                        color=0x8000ff,
                     ).set_image(url=bundle['icon'])
                 )
 
@@ -299,7 +299,7 @@ class BaseBundle(ui.View):
 
                     emoji = GetEmoji.tier_by_bot(items['uuid'], self.bot) if item_type == 'Skins' else ''
                     icon = item['icon'] if item_type != 'Player Cards' else item['icon']['large']
-                    color = 0xFD4554 if item_type == 'Skins' else 0x0F1923
+                    color = 0xFD4554 if item_type == 'Skins' else 0x8000ff
 
                     embed = self.base_embed(
                         f"{emoji} {item['names'][self.language]}", f"{vp_emoji} {items['price']}", icon, color
@@ -336,7 +336,7 @@ class BaseBundle(ui.View):
         embed = discord.Embed(
             title=featured_bundle_title.format(bundle=name),
             description=f"{vp_emoji} {bundle_price_text}" f" ({duration_text})",
-            color=0xFD4554,
+            color=0x8000ff,
         )
         embed.set_image(url=bundle['icon'])
 
@@ -350,7 +350,7 @@ class BaseBundle(ui.View):
             item_type = get_item_type(items['type'])
             emoji = GetEmoji.tier_by_bot(items['uuid'], self.bot) if item_type == 'Skins' else ''
             icon = item['icon'] if item_type != 'Player Cards' else item['icon']['large']
-            color = 0xFD4554 if item_type == 'Skins' else 0x0F1923
+            color = 0xFD4554 if item_type == 'Skins' else 0x8000ff
 
             item_price = items['price']
             item_base_price = items['base_price']
