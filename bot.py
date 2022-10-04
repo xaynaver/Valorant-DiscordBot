@@ -54,7 +54,7 @@ class ValorantBot(commands.Bot):
 
         # bot presence
         activity_type = discord.ActivityType.listening
-        await self.change_presence(status=discord.Status.idle, activity=discord.Activity(type=activity_type, name="/store | rosie ❤️"))
+        await self.change_presence(status=discord.Status.idle, activity=discord.Activity(type=activity_type, name="/xstore | rosie ❤️"))
 
     async def setup_hook(self) -> None:
         if self.session is None:
