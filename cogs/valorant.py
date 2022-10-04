@@ -83,7 +83,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     @app_commands.command(description='Log in with your Riot acoount')
     @app_commands.describe(username='Input username', password='Input password')
     # @dynamic_cooldown(cooldown_5s)
-    async def xlogin(self, interaction: Interaction, username: str, password: str) -> None:
+    async def login(self, interaction: Interaction, username: str, password: str) -> None:
 
         response = ResponseLanguage(interaction.command.name, interaction.locale)
 
@@ -111,7 +111,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
 
     @app_commands.command(description='Logout and Delete your account from database')
     # @dynamic_cooldown(cooldown_5s)
-    async def xlogout(self, interaction: Interaction) -> None:
+    async def logout(self, interaction: Interaction) -> None:
 
         await interaction.response.defer(ephemeral=True)
 
@@ -128,7 +128,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     @app_commands.describe(username='Input username (without login)', password='password (without login)')
     @app_commands.guild_only()
     # @dynamic_cooldown(cooldown_5s)
-    async def xstore(self, interaction: Interaction, username: str = None, password: str = None) -> None:
+    async def store(self, interaction: Interaction, username: str = None, password: str = None) -> None:
 
         # language
         response = ResponseLanguage(interaction.command.name, interaction.locale)
@@ -158,7 +158,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     @app_commands.command(description='View your remaining Valorant and Riot Points (VP/RP)')
     @app_commands.guild_only()
     # @dynamic_cooldown(cooldown_5s)
-    async def xpoint(self, interaction: Interaction, username: str = None, password: str = None) -> None:
+    async def point(self, interaction: Interaction, username: str = None, password: str = None) -> None:
 
         # check if user is logged in
         is_private_message = True if username is not None or password is not None else False
@@ -183,7 +183,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
 
     @app_commands.command(description='View your daily/weekly mission progress')
     # @dynamic_cooldown(cooldown_5s)
-    async def xmission(self, interaction: Interaction, username: str = None, password: str = None) -> None:
+    async def mission(self, interaction: Interaction, username: str = None, password: str = None) -> None:
 
         # check if user is logged in
         is_private_message = True if username is not None or password is not None else False
@@ -205,7 +205,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
 
     @app_commands.command(description='Show skin offers on the nightmarket')
     # @dynamic_cooldown(cooldown_5s)
-    async def xnightmarket(self, interaction: Interaction, username: str = None, password: str = None) -> None:
+    async def nightmarket(self, interaction: Interaction, username: str = None, password: str = None) -> None:
 
         # check if user is logged in
         is_private_message = True if username is not None or password is not None else False
@@ -235,7 +235,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
 
     @app_commands.command(description='View your battlepass current tier')
     # @dynamic_cooldown(cooldown_5s)
-    async def xbattlepass(self, interaction: Interaction, username: str = None, password: str = None) -> None:
+    async def battlepass(self, interaction: Interaction, username: str = None, password: str = None) -> None:
 
         # check if user is logged in
         is_private_message = True if username is not None or password is not None else False
@@ -263,7 +263,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     @app_commands.describe(bundle="The name of the bundle you want to inspect!")
     @app_commands.guild_only()
     # @dynamic_cooldown(cooldown_5s)
-    async def xbundle(self, interaction: Interaction, bundle: str) -> None:
+    async def bundle(self, interaction: Interaction, bundle: str) -> None:
 
         await interaction.response.defer()
 
@@ -298,7 +298,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     # inspired by https://github.com/giorgi-o
     @app_commands.command(description="Show the current featured bundles")
     # @dynamic_cooldown(cooldown_5s)
-    async def xbundles(self, interaction: Interaction) -> None:
+    async def bundles(self, interaction: Interaction) -> None:
 
         await interaction.response.defer()
 
@@ -318,7 +318,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     # https://github.com/giorgi-o/SkinPeek/wiki/How-to-get-your-Riot-cookies
     @app_commands.command()
     @app_commands.describe(cookie="Your cookie")
-    async def xcookies(self, interaction: Interaction, cookie: str) -> None:
+    async def cookies(self, interaction: Interaction, cookie: str) -> None:
         """Login to your account with a cookie"""
 
         await interaction.response.defer(ephemeral=True)
@@ -359,7 +359,7 @@ class ValorantCog(commands.Cog, name='Valorant'):
     @app_commands.describe(bug="The bug you want to fix")
     @app_commands.guild_only()
     @owner_only()
-    async def xdebug(
+    async def debug(
         self, interaction: Interaction, bug: Literal['Skin price not loading', 'Emoji not loading', 'Cache not loading']
     ) -> None:
 
